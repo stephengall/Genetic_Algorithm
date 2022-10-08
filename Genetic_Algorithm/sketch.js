@@ -9,7 +9,7 @@ var avgDist = 0;
 var ready = false;
 var obstacle;
 function setup() {
-  createCanvas(1000, 800);
+  createCanvas(1440, 810);
   for(var i = 0; i < numOfCars; i++)
     cars.push(new Car());
   
