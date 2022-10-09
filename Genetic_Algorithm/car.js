@@ -15,7 +15,7 @@ class Car{
         this.genes[i] = p5.Vector.random2D();
       }
     }
-    bounce(){
+    bounce(){ //ensuring vehicles do not pass border of the canvas
       if(this.position.x < 0 || this.position.x > width) this.collided = true;
       if(this.position.y < 0 || this.position.y > height) this.collided = true;
     }

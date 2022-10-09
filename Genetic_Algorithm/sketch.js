@@ -77,6 +77,8 @@ function mutate(){
   cars[random(0, cars.length - 1)] = p5.Vector.random2D();
 }
 function nextGen(){
+  //fills candidates array based on previous gen's performance
+  //creates new generation from randomly chosen parents
   var maxFit = 0;
   var candidates = [];
   var result = [];

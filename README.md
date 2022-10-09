@@ -3,7 +3,7 @@
 >
 > [Video showcase](https://youtu.be/oQ05nK9OzcY)
 
-# Technical Details
+## Technical Details
 **The algorithm**
 - Cars are initialised with a 'dna string' containing random vectors.
 - Each car follows these unique vectors for a specified amount of time.
@@ -14,3 +14,6 @@
 - The child duplicates one half of each parent's dna string, bisecting the parents' string at a random point.
 - This repeats until the next generation is large enough, and the cycle repeats.
 
+## Future Plans
+- Take time taken to reach the target into consideration when calculating fitness, to optimise path.
+- Calculate fitness throughout each vehicles' journey rather than just focusing based on its final posiiton.
