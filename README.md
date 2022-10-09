@@ -16,4 +16,4 @@
 
 ## Future Plans
 - Take time taken to reach the target into consideration when calculating fitness, to optimise path.
-- Calculate fitness throughout each vehicles' journey rather than just focusing based on its final posiiton.
+- Calculate fitness throughout each vehicles' journey rather than just focusing on its final posiiton.
