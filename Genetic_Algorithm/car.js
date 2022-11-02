@@ -31,7 +31,9 @@ class Car{
       return this.fitness;
     }
     move(){
+	//checking for collision between car and obstacle object
       if(!this.collided) this.collided = (this.position.x >= obstacle.x && this.position.x < obstacle.x + obstacle.obWidth && this.position.y < obstacle.y + obstacle.obHeight && this.position.y > obstacle.y);
+	//if car has not yet reached target
       if(!(dist(this.position.x, this.position.y, targetX, targetY) < 15) && !this.collided){
   
         this.acc.add(this.genes[this.pos]);
@@ -41,8 +43,9 @@ class Car{
         this.acc.mult(0);
       }else if(!this.goal){
         this.goal = true;
-        this.fast++;
+        this.fast++; //will be used to reward cars that have reached target quickly
       }
+	//allows cars to follow one vector within DNA string for some time before moving to next
       if(this.speed >= 10){
         this.pos++;
         this.speed = 0;

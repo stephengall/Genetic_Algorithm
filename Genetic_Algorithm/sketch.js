@@ -36,17 +36,18 @@ function draw() {
   //waiting for user to place target
   if(ready){
       for(var i = 0; i < cars.length; i++){
-      //updating cars
-      cars[i].move();
-      cars[i].evaluate();
-      cars[i].show();
-      cars[i].bounce();
+      	//updating cars
+      	cars[i].move();
+      	cars[i].evaluate();
+      	cars[i].show();
+      	cars[i].bounce();
       }
-
+	//checking to see if cars have reached the end of their DNA string, generates new generation
     if(cars[0].pos == dnaLength - 1){
       avgDist = avgDistance();
       var temp = nextGen();
       cars = temp;
+	//20% chance of one of the cars DNA string mutating
       if(random(0, 1) <= 0.2) mutate();
       generations++;
     }
@@ -82,21 +83,25 @@ function nextGen(){
   var maxFit = 0;
   var candidates = [];
   var result = [];
+  //finding maximum fitness so each car's fitness can be normalised
   for(var i = 0; i < cars.length; i++){
     if(cars[i].fitness > maxFit)
       maxFit = cars[i].fitness;
   }
+
   for(var i = 0; i < cars.length; i++){
-    cars[i].fitness /= maxFit;
-    for(var j = 1; j < (cars[i].fitness * 10); j++)
+    cars[i].fitness /= maxFit; //normalising
+    for(var j = 1; j < (cars[i].fitness * 10); j++) //adding cars to candidates based on fitness level
       candidates.push(cars[i]);
   }
+  //choosing random parents to create new car
   for(var i = 0; i < numOfCars; i++){
     var p1 = random(candidates);
     var p2 = random(candidates);
     while(p2 == p1) p2 = random(candidates);
     var child = new Car();
     
+    //choosing random point within range to bisect DNA strings	  
     var midpoint = random((p1.genes.length / 2) - 5, (p1.genes.length / 2) + 5);
     
     for(var j = 0; j < dnaLength; j++){
